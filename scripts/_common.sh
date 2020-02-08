@@ -633,7 +633,7 @@ ynh_install_php () {
 
 	if [ "$phpversion" == "7.0" ]
 	then
-		ynh_die --message="Do not use ynh_install_php to install php7.0"
+		ynh_die --message="Do not use ynh_install_php to install php7.3"
 	fi
 
 	# Store the ID of this app and the version of php requested for it
@@ -647,8 +647,8 @@ ynh_install_php () {
 	ynh_add_app_dependencies --package="php${phpversion}-fpm"
 	ynh_add_app_dependencies --package="php$phpversion php${phpversion}-common $package"
 
-	# Set php7.0 back as the default version for php-cli.
-	update-alternatives --set php /usr/bin/php7.0
+	# Set php7.3 back as the default version for php-cli.
+	update-alternatives --set php /usr/bin/php7.3
 
 	# Remove this extra repository after packages are installed
 	ynh_remove_extra_repo --name=extra_php_version
@@ -665,7 +665,7 @@ ynh_remove_php () {
 	then
 		if [ "$phpversion" == "7.0" ]
 		then
-			ynh_print_err "Do not use ynh_remove_php to install php7.0"
+			ynh_print_err "Do not use ynh_remove_php to install php7.3"
 		fi
 		return 0
 	fi
